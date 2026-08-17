@@ -3,6 +3,22 @@
 fist line
 
 
-Созданный .gitignore файл, расположенный в папке Terraform, указывает системе Git игнорировать следующие файлы и папки:
-  1. папка .terraform/
-  2. файлы *.tfstate, *.tfstate.*, crash.log, crash.*.log, *.tfvars, *.tfvars.json override.tf, override.tf.json, *_override.tf, *_override.tf.json, .terraform.tfstate.lock.info, .terraformrc, terraform.rc
+Созданный .gitignore файл, расположенный в папке Terraform, указывает системе Git игнорировать следующие файлы и папки:  
+  1. папка .terraform/ - игнорировать все папки с точным именем .terraform, расположенные на любом уровне вложенности внутри проекта, вместе со всем их содержимым. Отсутсвие слеша в начале означает, что правило применяется во всех вложенных папках проекта, а не только в корне. Слеш в конце - это директория.  
+  2. *.tfstate - игнорировать все файлы с расширением .tfstate в любых папках проекта. * - означает любое количество любых символов,.tfstate - конкретное расширение. Например, будут игнорироваться файлы  prod.tfstate, dev.tfstate.  
+  3.  *.tfstate.* - игнорировать все файлы, у которых в имени есть .tfstate. (точка, слово tfstate, точка). Перед точкой в начале и после точки в конце может быть любое количество любых знаков. Например, будут игнорироваться файлы prod.tfstate.backup, dev.tfstate.old  
+  4.  crash.log - будут игнорироваться файлы с точным именем crash.log  
+  5.  crash.*.log - игнорировать все файлы, начинающиеся с crash. и заканчивающиеся на .log. В середине (вместо звездочки) может быть любое количество любых символов. Например, crash.info.log  
+  6.   *.tfvars - игнорировать все файлы с расширением .tfvars, т.е. имя файла может быть любым. Например, terraform.tfvars , dev.tfvars  
+  7.   *.tfvars.json - игнорировать все файлы с расширением .tfvars.json. Имя файла любое.  
+  8.   override.tf - игнорировать  файл с конкретным именем override.tf  
+  9.   override.tf.json - игнорировать файл с точным именем override.tf.json  
+  10.  *_override.tf - игнорировать все файлы, заканчивающиеся на _override.tf. * в начале означает, что название файла может быть любое. Например, test_override.tf, prod_override.tf  
+  11.  *_override.tf.json - игнорировать все файлы, заканчивающиеся на _override.tf.json.  
+  12.  .terraform.tfstate.lock.info - игнорировать файл с точным именем .terraform.tfstate.lock.info. Причем точка в начале — это часть имени файла.  
+  13.  .terraformrc - игнорировать файл с точным именем .terraformrc. Например, .terraformrc, project/.terraformrc.  
+  14.  terraform.rc - игнорировать файл с точным именем terraform.rc. Например, terraform.rc, project/terraform.rc.  
+      
+
+
+
