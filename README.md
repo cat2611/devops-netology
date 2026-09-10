@@ -19,6 +19,6 @@ fist line
   13.  .terraformrc - игнорировать файл с точным именем .terraformrc. Например, .terraformrc, project/.terraformrc.  
   14.  terraform.rc - игнорировать файл с точным именем terraform.rc. Например, terraform.rc, project/terraform.rc.  
       
-
+#test
 
 
