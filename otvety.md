@@ -62,9 +62,9 @@
    c0b1761096 prevent log output during init  
    8364383c35 Push plugin discovery down into command package  
 
-Определим файлы в котором упомятнается функция globalPluginDirs    
-   git log -S "globalPluginDirs" --name-only --oneline --all  
-   7c4aeac5f3 stacks: load credentials from config file on startup (#35952)  
+    Определим файлы в котором упомятнается функция globalPluginDirs    
+    git log -S "globalPluginDirs" --name-only --oneline --all  
+    7c4aeac5f3 stacks: load credentials from config file on startup (#35952)  
     commands.go  
     internal/command/cliconfig/plugins.go  
     de49677ecd Run tf exec e2e tests  
@@ -96,17 +96,17 @@
     plugins.go  
 
 
-Так как самый первый коммит затрагивает только два файла определим где эта функция создается   
-в файле commands.go функция только вызывается:  
+   Так как самый первый коммит затрагивает только два файла определим где эта функция создается   
+   в файле commands.go функция только вызывается:  
    git show 8364383c35:commands.go |grep globalPluginDirs  
                 GlobalPluginDirs: globalPluginDirs(),  
-В файле plugins.go функция создается    
+   В файле plugins.go функция создается    
    git show 8364383c35:plugins.go |grep globalPluginDirs  
     // globalPluginDirs returns directories that should be searched for  
     func globalPluginDirs() []string {s   
-проследим коммиты которые меняли эту функцию:  
-посмотрим что было сделано в коммите fcdb5d2e55    
-  git show fcdb5d2e55:plugins.go  
+   проследим коммиты которые меняли эту функцию:  
+   посмотрим что было сделано в коммите fcdb5d2e55    
+     git show fcdb5d2e55:plugins.go  
      // globalPluginDirs returns directories that should be searched for  
     // globally-installed plugins (not specific to the current configuration).  
     //   
@@ -126,7 +126,7 @@
             }  
   
             return ret  
-    }    
+          }    
 
 Как видно из коммита там функция менялась.  
 Проанализируем последний коммит 7c4aeac5f3  
