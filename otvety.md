@@ -123,10 +123,9 @@
                     machineDir := fmt.Sprintf("%s_%s", runtime.GOOS, runtime.GOARCH)  
                     ret = append(ret, filepath.Join(dir, "plugins"))  
                     ret = append(ret, filepath.Join(dir, "plugins", machineDir))  
-            }  
-  
+            }   
             return ret  
-          }    
+         }    
 
 Как видно из коммита там функция менялась.  
 Проанализируем последний коммит 7c4aeac5f3  
